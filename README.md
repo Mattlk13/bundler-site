@@ -1,19 +1,34 @@
 # bundler.io
-bundler.io is intended to serve as a convenient source for documentation on the [bundler](https://github.com/bundler/bundler) gem.
+bundler.io is intended to serve as a convenient source for documentation on the [bundler](https://github.com/rubygems/rubygems) gem.
 
 The site bundler.io is a static site generated using [Middleman](http://middlemanapp.com/).
 
-[Bundler's manual pages](https://github.com/bundler/bundler/tree/master/man) document much of its functionality and serve as an important part of the site. They are included via the **Rakefile**.
+[Bundler's manual pages](https://github.com/rubygems/rubygems/tree/master/bundler/man) document much of its functionality and serve as an important part of the site. They are included via the **Rakefile**.
 
 ## Development Set Up
 
 Begin by cloning the repository onto your location machine:
 
-    git clone https://github.com/bundler/bundler-site.git
+    git clone https://github.com/rubygems/bundler-site.git
 
 Once complete prepare the dependencies by running:
 
     bundle install
+
+### If you have trouble installing the `middleman-search` gem
+
+`middleman-search` depends on the deprecated gem `therubyracer`, which depends
+on an obsolete version of `libv8`. They can be difficult to install.
+
+```
+gem install libv8 -v '3.16.14.19' -- --with-system-v8
+gem install therubyracer -v '0.12.3' --source 'https://rubygems.org/' -- --with-v8-dir=/usr/local/opt/v8@3.15
+```
+
+For further discussion, see https://gist.github.com/fernandoaleman/868b64cd60ab2d51ab24e7bf384da1ca
+
+There is an open PR to fix `middleman-search`:
+https://github.com/manastech/middleman-search/issues/18
 
 ## Basic Middleman Commands
 

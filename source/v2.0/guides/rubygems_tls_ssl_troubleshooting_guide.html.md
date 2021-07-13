@@ -169,12 +169,12 @@ or [package manager][installing-from-package-managers].)
 ### Automated SSL check
 [ssl-check]: #automated-ssl-check
 
-First, [run this script](https://github.com/bundler/ruby-ssl-check/blob/master/check.rb) to
+First, [run this script](https://github.com/rubygems/ruby-ssl-check/blob/master/check.rb) to
 check whether your errors result from the SSL certs issue or the TLS versions issue.
 
-You can run the script immediately with this command:
+You can run the script immediately with this command (Windows 10 also):
 
-```$ ruby -ropen-uri -e 'eval open("https://git.io/vQhWq").read'```
+```$ curl -Lks 'https://git.io/rg-ssl' | ruby```
 
 If the output reads “Your Ruby can't connect to rubygems.org because you are missing the
 certificate” you have a certificate verification error, and need to update your certs.
@@ -213,7 +213,7 @@ You're done! Run `gem --version` to verify that you are using the latest version
 ### Updating System Clock
 [update-system-clock]: #updating-system-clock
 
-If your system clock is set to a time in the past or future, your machine will not be able to establish a secure connection to RubyGems.org. To resolve the issue, you will need to set your system clock to the current time. In Linux, you can update the system clock by running `sudo ntpdate ntp.ubuntu.com`. 
+If your system clock is set to a time in the past or future, your machine will not be able to establish a secure connection to RubyGems.org. To resolve the issue, you will need to set your system clock to the current time. In Linux, you can update the system clock by running `sudo ntpdate ntp.ubuntu.com`.
 
 Here are other possible solutions for updating a system clock:
 
@@ -240,7 +240,7 @@ instructions in this guide for upgrading Ruby as well.
 
 **Step 1: Get the new trust certificate**
 
-Download the `.pem` file from this link: [GlobalSignRootCA.pem](https://raw.githubusercontent.com/rubygems/rubygems/master/lib/rubygems/ssl_certs/index.rubygems.org/GlobalSignRootCA.pem)
+Download the `.pem` file from this link: [GlobalSignRootCA.pem](https://raw.githubusercontent.com/rubygems/rubygems/master/lib/rubygems/ssl_certs/rubygems.org/GlobalSignRootCA_R3.pem)
 
 Then, find the downloaded file, and check to make sure the filename ends in `.pem`.
 (*Note*: Some browsers will change the extension to `.txt`, which will prevent this from working.
@@ -429,7 +429,7 @@ If none of these instructions fixed the problem, the next step is to open an iss
 
 (Create an issue in the [RubyGems issue tracker](https://github.com/rubygems/rubygems/issues)
 if your error came from `gem install`. If it came from `bundle install`, create an issue in
-the [Bundler issue tracker](https://github.com/bundler/bundler).)
+the [Bundler issue tracker](https://github.com/rubygems/rubygems/issues/new?labels=Bundler&template=bundler-related-issue.md).)
 
 Please include:
 - The output from running `gem env`:
@@ -442,4 +442,4 @@ Please include:
 ### Contributing to this guide
 [contributing-to-guide]: #contributing-to-this-guide
 
-If you found a solution not listed here, submit a PR to add your solution to [this guide](https://github.com/bundler/bundler-site/blob/master/source/v1.16/guides/rubygems_tls_ssl_troubleshooting_guide.html.md)!
+If you found a solution not listed here, submit a PR to add your solution to [this guide](https://github.com/rubygems/bundler-site/blob/master/source/v1.16/guides/rubygems_tls_ssl_troubleshooting_guide.html.md)!
