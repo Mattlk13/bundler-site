@@ -1,0 +1,43 @@
+{
+  "name": "bundler-site",
+  "version": "1.0.0",
+  "description": "bundler.io is intended to serve as a convenient source for documentation on the [bundler](https://github.com/rubygems/rubygems) gem.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "private": true,
+  "scripts": {
+    "build": "npx webpack --bail --mode production",
+    "lint": "prettier --check assets/javascripts",
+    "start": "npx webpack -d source-map --progress --color",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubygems/bundler-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rubygems/bundler-site/issues"
+  },
+  "homepage": "https://github.com/rubygems/bundler-site#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.2",
+    "prettier": "3.4.2",
+    "sass": "^1.83.4",
+    "sass-loader": "^16.0.4",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "anchor-js": "^5.0.0",
+    "bootstrap": "^5.3.3",
+    "lunr": "^0.7.0"
+  }
+}

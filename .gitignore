@@ -24,9 +24,21 @@
 /bin
 
 # pages from the bundler repo
+source/changelog.html.md
 source/conduct.html.md
 source/doc
 
+# contributor data generated from the bundler repo
+data/contributors.yml
+
 # man pages built from the bundler repo
-/source/man/
 /source/v*/man/
+
+# deploy key
+/deploy_key
+
+# javascript libraries
+/node_modules
+
+# packed assets
+/.tmp
